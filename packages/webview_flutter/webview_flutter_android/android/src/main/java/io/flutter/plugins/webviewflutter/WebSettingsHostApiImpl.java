@@ -67,6 +67,7 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
   public void setDomStorageEnabled(Long instanceId, Boolean flag) {
     final WebSettings webSettings = (WebSettings) instanceManager.getInstance(instanceId);
     webSettings.setDomStorageEnabled(flag);
+    webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
   }
 
   @Override
@@ -85,12 +86,14 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
   public void setJavaScriptEnabled(Long instanceId, Boolean flag) {
     final WebSettings webSettings = (WebSettings) instanceManager.getInstance(instanceId);
     webSettings.setJavaScriptEnabled(flag);
+    webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
   }
 
   @Override
   public void setUserAgentString(Long instanceId, String userAgentString) {
     final WebSettings webSettings = (WebSettings) instanceManager.getInstance(instanceId);
     webSettings.setUserAgentString(userAgentString);
+    webSettings.setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
   }
 
   @Override
