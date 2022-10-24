@@ -23,7 +23,7 @@ dependencies:
     git:
       url: https://github.com/lwd369/plugins.git
       ref: mod
-      path: packages/webview_flutter/webview_flutter_android
+      path: packages/webview_flutter/webview_flutter_android_mixed_content
   webview_flutter_platform_interface: ^1.8.0
   webview_flutter_wkwebview: ^2.7.0
 
