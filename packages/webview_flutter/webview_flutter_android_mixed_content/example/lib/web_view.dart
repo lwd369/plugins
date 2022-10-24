@@ -8,8 +8,8 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter_android/webview_android.dart';
-import 'package:webview_flutter_android/webview_android_cookie_manager.dart';
+import 'package:webview_flutter_android_mixed_content/webview_android.dart';
+import 'package:webview_flutter_android_mixed_content/webview_android_cookie_manager.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 
 import 'navigation_decision.dart';
@@ -51,7 +51,7 @@ typedef WebResourceErrorCallback = void Function(WebResourceError error);
 /// provided through the `onWebViewCreated` callback.
 ///
 /// In this example project it's main purpose is to facilitate integration
-/// testing of the `webview_flutter_android` package.
+/// testing of the `webview_flutter_android_mixed_content` package.
 class WebView extends StatefulWidget {
   /// Creates a new web view.
   ///
@@ -693,7 +693,7 @@ class WebViewCookieManager extends WebViewCookieManagerPlatform {
         WebViewCookieManagerPlatform.instance = WebViewAndroidCookieManager();
       } else {
         throw AssertionError(
-            'This platform is currently unsupported for webview_flutter_android.');
+            'This platform is currently unsupported for webview_flutter_android_mixed_content.');
       }
     }
     return WebViewCookieManagerPlatform.instance!;

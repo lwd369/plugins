@@ -7,6 +7,7 @@ on:
   push:
     branches:
       - 'master'
+      - 'mod'
 
 jobs:
   mirror_job:

@@ -12,7 +12,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_driver/driver_extension.dart';
 import 'package:path_provider/path_provider.dart';
-import 'package:webview_flutter_android/webview_surface_android.dart';
+import 'package:webview_flutter_android_mixed_content/webview_surface_android.dart';
 import 'package:webview_flutter_platform_interface/webview_flutter_platform_interface.dart';
 
 import 'navigation_decision.dart';
