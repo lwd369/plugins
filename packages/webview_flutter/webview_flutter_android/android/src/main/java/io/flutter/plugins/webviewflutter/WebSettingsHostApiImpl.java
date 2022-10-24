@@ -11,13 +11,17 @@ import io.flutter.plugins.webviewflutter.GeneratedAndroidWebView.WebSettingsHost
 /**
  * Host api implementation for {@link WebSettings}.
  *
- * <p>Handles creating {@link WebSettings}s that intercommunicate with a paired Dart object.
+ * <p>
+ * Handles creating {@link WebSettings}s that intercommunicate with a paired
+ * Dart object.
  */
 public class WebSettingsHostApiImpl implements WebSettingsHostApi {
   private final InstanceManager instanceManager;
   private final WebSettingsCreator webSettingsCreator;
 
-  /** Handles creating {@link WebSettings} for a {@link WebSettingsHostApiImpl}. */
+  /**
+   * Handles creating {@link WebSettings} for a {@link WebSettingsHostApiImpl}.
+   */
   public static class WebSettingsCreator {
     /**
      * Creates a {@link WebSettings}.
@@ -31,9 +35,11 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
   }
 
   /**
-   * Creates a host API that handles creating {@link WebSettings} and invoke its methods.
+   * Creates a host API that handles creating {@link WebSettings} and invoke its
+   * methods.
    *
-   * @param instanceManager maintains instances stored to communicate with Dart objects
+   * @param instanceManager    maintains instances stored to communicate with Dart
+   *                           objects
    * @param webSettingsCreator handles creating {@link WebSettings}s
    */
   public WebSettingsHostApiImpl(
@@ -45,6 +51,11 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
   @Override
   public void create(Long instanceId, Long webViewInstanceId) {
     final WebView webView = (WebView) instanceManager.getInstance(webViewInstanceId);
+
+    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+      webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
+    }
+
     instanceManager.addDartCreatedInstance(
         webSettingsCreator.createWebSettings(webView), instanceId);
   }
