@@ -52,9 +52,7 @@ public class WebSettingsHostApiImpl implements WebSettingsHostApi {
   public void create(Long instanceId, Long webViewInstanceId) {
     final WebView webView = (WebView) instanceManager.getInstance(webViewInstanceId);
 
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-      webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
-    }
+    webView.getSettings().setMixedContentMode(WebSettings.MIXED_CONTENT_ALWAYS_ALLOW);
 
     instanceManager.addDartCreatedInstance(
         webSettingsCreator.createWebSettings(webView), instanceId);
